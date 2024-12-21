@@ -9,7 +9,7 @@
                 <div class="text-center col-md-6 text-md-start">
                     <h1 class="display-4 fw-bold">Selamat Datang di Website D'Kost</h1>
                     <p class="lead">Platform website pencarian kost tanpa ribet dan terpercaya</p>
-                    <button class="btn btn-primary ">Bergabung</button>
+                    <button class="btn btn-primary">Bergabung</button>
                 </div>
                 <div class="col-md-6">
                     <img src="https://binabangunbangsa.com/wp-content/uploads/2020/03/tips-Manajemen-Rumah-Kost-yang-Baik-dan-Benar-.jpg"
