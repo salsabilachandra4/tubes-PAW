@@ -67,8 +67,8 @@
                                         <td>Putri</td>
                                         <td>10</td>
                                         <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
+                                            <a href="{{ url('/admin/detail-data') }}" class="btn btn-info btn-sm">Detail</a>
+                                            <a href="{{ url('/admin/edit-data') }}" class="btn btn-warning btn-sm">Edit</a>
                                             <button class="btn btn-danger btn-sm">Hapus</button>
                                         </td>
                                     </tr>
@@ -78,8 +78,8 @@
                                         <td>Putra</td>
                                         <td>5</td>
                                         <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
+                                            <a href="{{ url('/admin/detail-data') }}" class="btn btn-info btn-sm">Detail</a>
+                                            <a href="{{ url('/admin/edit-data') }}" class="btn btn-warning btn-sm">Edit</a>
                                             <button class="btn btn-danger btn-sm">Hapus</button>
                                         </td>
                                     </tr>
@@ -89,8 +89,8 @@
                                         <td>Campur</td>
                                         <td>8</td>
                                         <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
+                                            <a href="{{ url('/admin/detail-data') }}" class="btn btn-info btn-sm">Detail</a>
+                                            <a href="{{ url('/admin/edit-data') }}" class="btn btn-warning btn-sm">Edit</a>
                                             <button class="btn btn-danger btn-sm">Hapus</button>
                                         </td>
                                     </tr>

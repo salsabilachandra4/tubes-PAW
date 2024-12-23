@@ -17,10 +17,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="text-white nav-link" href="{{ url('/admin') }}">Dashboard</a>
+                        <a class="text-white nav-link" href="{{ url('/admin/dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white nav-link" href="{{ url('/tambah-data') }}">Tambah Data</a>
+                        <a class="text-white nav-link" href="{{ url('/admin/tambah-data') }}">Tambah Data</a>
                     </li>
                 </ul>
             </div>
