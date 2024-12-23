@@ -14,6 +14,9 @@ Route::get('/login', function () {
 Route::get('/home', function () {
     return view('pages.home');
 });
+Route::get('/home/list-kost', function(){
+    return view('pages.list-kost');
+});
 Route::get('/home/detail', function () {
     return view('pages.detail');
 });

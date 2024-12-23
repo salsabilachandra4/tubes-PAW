@@ -29,7 +29,14 @@
                     <label for="alamat" class="form-label">Alamat</label>
                     <textarea class="form-control" id="alamat" name="alamat" rows="1" placeholder="Masukkan Alamat Kos" required></textarea>
                 </div>
-                <input class="d-none" id="status" name="status" value="Tersedia">
+                <div class="col-6">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status" required>
+                        <option value="" selected disabled>Status Kos</option>
+                        <option value="Tersedia">Tersedia</option>
+                        <option value="Penuh">Penuh</option>
+                    </select>
+                </div>
                 <div class="mb-3 g-3 d-flex row">
                     <div class="col-6">
                         <label for="stock" class="form-label">Stok</label>
