@@ -8,7 +8,9 @@
             <div class="mb-4 text-center">
                 <h2>Edit Data Kos</h2>
             </div>
-            <form>
+            <form action="{{ url('/admin/edit-data') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="mb-3 g-3 d-flex row">
                     <div class="col-6">
                         <label for="nama" class="form-label">Nama Kos</label>
@@ -36,6 +38,15 @@
                         <option value="Tersedia">Tersedia</option>
                         <option value="Penuh">Penuh</option>
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="harga" class="form-label">Harga</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Rp.</span>
+                        <input type="number" class="form-control" min="0.00" name="harga" id="harga"
+                            placeholder="Masukkan Harga Kos" required>
+                        <span class="input-group-text">.00</span>
+                    </div>
                 </div>
                 <div class="mb-3 g-3 d-flex row">
                     <div class="col-6">

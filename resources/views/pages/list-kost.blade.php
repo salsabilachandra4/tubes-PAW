@@ -3,46 +3,21 @@
 @section('title', 'List Kost')
 
 @section('content')
-<div class="container">
-    <div class="row d-flex justify-content-center align-items-center" style="height: 100vh">
-            <div class="col-12 d-flex flex-row justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://coder-telkomsby.com/assets/images/blog-dummy.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{url('/home/detail')}}" class="btn btn-primary">Go somewhere</a>
+    <div class="container py-4">
+        <div class="h-auto row d-flex g-4 justify-content-center align-items-center">
+            <div class="flex-row col-12 d-flex justify-content-around">
+                @foreach ($kosts as $kost)
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ 'storage/' . $kost->image }}" class="card-img-top" alt="{{ $kost->nama }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $kost->nama }}</h5>
+                            <p class="card-text">Rp. {{ number_format($kost->harga) }}</p>
+                            <a href="{{ url('/list-kost/detail', $kost->id) }}" class="btn btn-primary">Go somewhere</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://coder-telkomsby.com/assets/images/blog-dummy.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{url('/home/detail')}}" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 d-flex flex-row justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://coder-telkomsby.com/assets/images/blog-dummy.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{url('/home/detail')}}" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://coder-telkomsby.com/assets/images/blog-dummy.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{url('/home/detail')}}" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-</div>
 
 @endsection
