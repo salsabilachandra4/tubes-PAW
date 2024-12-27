@@ -50,7 +50,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -60,41 +60,21 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{-- <tbody>
+                                    @foreach ($kosts as $kost)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Kos Mawar</td>
-                                        <td>Putri</td>
-                                        <td>10</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$kost->nama}}</td>
+                                        <td>{{$kost->tipe}}</td>
+                                        <td>{{$kost->stock}}</td>
                                         <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Hapus</button>
+                                            <a href="{{url('admin/detail-data/' . $kost->id)}}" class="btn btn-info btn-sm mx-2">Detail</button>
+                                            <a href="{{url('admin/edit-data/' . $kost->id)}}" class="btn btn-warning btn-sm mx-2">Edit</button>
+                                            <a href="{{url('admin/hapus-data/' . $kost->id)}}" class="btn btn-danger btn-sm mx-2">Hapus</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Kos Melati</td>
-                                        <td>Putra</td>
-                                        <td>5</td>
-                                        <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Kos Anggrek</td>
-                                        <td>Campur</td>
-                                        <td>8</td>
-                                        <td>
-                                            <button class="btn btn-info btn-sm">Detail</button>
-                                            <button class="btn btn-warning btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Hapus</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                    @endforeach
+                                </tbody> --}}
                             </table>
                         </div>
                     </div>
@@ -103,3 +83,27 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="module">
+        $(document).ready(function() {
+            $("#dataTable").DataTable({
+                serverSide: true,
+                processing: true,
+                ajax: "/admin/get-data",
+                columns: [
+                    { data: "DT_RowIndex", name: "DT_RowIndex", orderable: false, searchable: false },
+                    { data: "nama", name: "nama" },
+                    { data: "tipe", name: "tipe" },
+                    { data: "stock", name: "stock" },
+                    { data: "action", name: "action", orderable: false, searchable: false },
+                ],
+                order: [[0, "desc"]],
+                lengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"],
+                ],
+            });
+        });
+    </script>
+@endpush

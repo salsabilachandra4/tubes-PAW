@@ -7,12 +7,30 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use DataTables;
 
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     public function getData(Request $request)
+    {
+        $kosts = Kost::select(['id', 'nama', 'tipe', 'stock']);
+        return DataTables::of($kosts)
+        ->addIndexColumn()
+        ->addColumn('action', function ($row) {
+            return '
+                <a href="' . url('admin/detail-data/' . $row->id) . '" class="btn btn-info btn-sm mx-2">Detail</a>
+                <a href="' . url('admin/edit-data/' . $row->id) . '" class="btn btn-warning btn-sm mx-2">Edit</a>
+                <a href="' . url('admin/hapus-data/' . $row->id) . '" class="btn btn-danger btn-sm mx-2">Hapus</a>
+            ';
+        })
+        ->rawColumns(['action'])
+        ->make(true);
+    }
+
     public function index()
     {
         $totalKost = Kost::count();
@@ -98,6 +116,35 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        try {
+            $kost = Kost::findOrFail($id);
+
+            if ($request->hasFile('image')) {
+                if ($kost->image) {
+                    Storage::disk('public')->delete($kost->image);
+                }
+                $imagePath = $request->file('image')->store('images', 'public');
+            } else {
+                $imagePath = $kost->image;
+            }
+
+            $kost->update([
+                'nama' => $request->input('nama'),
+                'tipe' => $request->input('tipe'),
+                'alamat' => $request->input('alamat'),
+                'status' => $request->input('status'),
+                'harga' => $request->input('harga'),
+                'stock' => $request->input('stock'),
+                'deskripsi' => $request->input('deskripsi'),
+                'image' => $imagePath,
+            ]);
+
+            Alert::success('Update Successfully', 'Data Telah berhasil diupdate!');
+            return redirect('/admin');
+        } catch (Exception $e) {
+            Alert::error('Update Failed', 'Data Tidak berhasil diupdate!');
+            return redirect('/admin/edit-data/' . $id);
+        }
     }
 
     /**

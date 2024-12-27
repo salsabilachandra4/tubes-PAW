@@ -17,7 +17,13 @@ Route::post('/admin/tambah-data', [AdminController::class, 'store']);
 Route::get('/admin/edit-data/{id}', [AdminController::class, 'edit']);
 Route::put('/admin/edit-data/{id}', [AdminController::class, 'update']);
 Route::get('/admin/detail-data/{id}', [AdminController::class, 'show']);
+Route::get('/admin/hapus-data/{id}', [AdminController::class, 'destroy']);
+Route::get('/admin/get-data', [AdminController::class, 'getData'])->name('getData');
 
 
 Route::get('/list-kost', [KostController::class, 'index']);
 Route::get('/list-kost/detail/{id}', [KostController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

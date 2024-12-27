@@ -26,7 +26,7 @@
                 <p>{{ $kost->deskripsi }}</p>
 
                 <div class="mt-4">
-                    <a href="{{ url('/admin/dashboard') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ url('/admin') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>
