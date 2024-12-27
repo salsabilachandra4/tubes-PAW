@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class KostController extends Controller
 {
+
+    public function landing()
+    {
+        $kost = Kost::where('status', 'Tersedia')->latest()->take(4)->get();
+        return view('landing', [
+            'kosts' => $kost
+        ]);
+    }
+    
     public function index()
     {
         $kost = Kost::where('status', 'Tersedia')->get();
