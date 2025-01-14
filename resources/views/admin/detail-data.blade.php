@@ -12,6 +12,7 @@
 
             <div class="col-md-6">
                 <h1 class="mb-3">{{ $kost->nama }}</h1>
+                <h4 class="mb-3">Rp. {{ number_format($kost->harga) }}</h4>
                 <p><strong>Tipe:</strong> {{ $kost->tipe }}</p>
                 <p><strong>Alamat:</strong> {{ $kost->alamat }}</p>
                 <p><strong>Status:</strong>
