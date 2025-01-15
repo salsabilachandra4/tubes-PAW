@@ -14,6 +14,7 @@
                     <div class="col-6">
                         <label for="nama" class="form-label">Nama Kos</label>
                         <input type="text" class="form-control" id="nama" name="nama"
+                        {{--  Input untuk memasukkan nama kos --}}
                             placeholder="Masukkan Nama Kos" required>
                     </div>
                     <div class="col-6">

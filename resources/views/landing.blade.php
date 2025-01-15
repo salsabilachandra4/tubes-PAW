@@ -38,16 +38,20 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light">
-        <div class="container text-center g-2">
-            <div class="w-100 text-end">
+    <section class="py-5 bg-light"> {{-- py 5 buat nambahin padding --}}
+        <div class="container text-center g-2"> {{-- bikin container buat batasei lebar konten biar ga terlalu lebar.
+            sama bikin margin otomatis --}}
+            <div class="w-100 text-end"> {{-- text end biar di sebelah kanan --}}
                 <a href="{{ url('/list-kost') }}" class="text-black-50 fw-bold text-decoration-underline">Lihat Semua</a>
+                {{-- link ini ngarah ke semua daftar kost an  --}}
             </div>
             <h2 class="mb-4">Servis Kami</h2>
             <div class="row justify-content-around">
-                @foreach ($kosts as $kost)
-                    <div class="card m-3" style="width: 15rem; ">
-                        <img src="{{ 'storage/' . $kost->image }}" class="card-img-top" alt="{{ $kost->nama }}">
+                @foreach ($kosts as $kost) {{-- kost dikirim dari kontroller ke view sama array yang berisi 
+                data kost yang akan ditampilkan ($kost Setiap item koleksi $kosts yang di-loop di dalam foreach)  --}} 
+                    <div class="card m-3" style="width: 15rem; "> {{-- bootstrap kek tamplate kartu  --}}
+                        <img src="{{ 'storage/' . $kost->image }}" class="card-img-top" alt="{{ $kost->nama }}"> 
+                      {{-- ngambil gambar kos dari direktori storage. nama gambar gambar disimpan di kolom image di objek $kost --}}
                         <div class="card-body">
                             <h5 class="card-title">{{ $kost->nama }}</h5>
                             <p class="card-text">Rp. {{ number_format($kost->harga) }}</p>

@@ -16,9 +16,13 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
 
-        $credentials = $request->validate([
+  
+        $credentials = $request->validate([  //$request ini object yang isinya semua data dari form login yang dimasukin/yg didaftarin
+            //validate buat validasi input dr formnya bener ngga. kalo ngga, laravel otomatis ngembaliin eror 
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8']
+            //masukin email harus diisi (required) dan punya format email yang bener
+            'password' => ['required', 'min:8'] 
+            //required berarti passwor harus diisi dan minimal 8 karakter
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -35,6 +39,8 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
+        //Menghapus sesi autentikasi: Ini memastikan bahwa ID pengguna yang tersimpan dalam session dihapu
         return redirect('/login');
+        //Fungsi ini ngarahin pengguna ke halaman login setelah mereka keluar
     }
 }

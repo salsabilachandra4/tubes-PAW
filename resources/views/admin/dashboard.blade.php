@@ -1,13 +1,16 @@
-@extends('template.admin')
+@extends('template.admin') {{-- Halaman ini memperluas template admin. Struktur dasar seperti navigasi dan footer diatur di template tersebut--}}
 
 @section('title', 'Dashboard')
 
-@section('content')
+@section('content') {{-- mendefinisikan konten utama untuk dashboard. Komponen-komponen 
+dalam dashboard kayak statistik kos, daftar kos dalam tabel, dan integrasi DataTables--}}
     <div class="container py-5">
         <div class="mb-5 row">
+
+            {{-- statistik kos --}}
             <div class="mb-3 col-md-4 col-sm-6">
                 <div class="p-4 text-white rounded shadow d-flex bg-primary align-items-center" style="height: 150px;">
-                    <div class="display-1 fw-bold me-3" style="flex: 1;">{{ $totalKost }}</div>
+                    <div class="display-1 fw-bold me-3" style="flex: 1;">{{ $totalKost }}</div> {{-- total kost data yg dikirim dair kontroller --}}
                     <div class="text-end" style="flex: 2;">
                         <div class="fs-6">Kamar Kos</div>
                         <div class="fw-bold">Total</div>
@@ -42,6 +45,7 @@
             </div>
         </div>
 
+        {{-- tabel data kos --}}
         <div class="row">
             <div class="col">
                 <div class="shadow card">

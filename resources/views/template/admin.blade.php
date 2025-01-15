@@ -12,6 +12,7 @@
         @vite('resources/sass/app.scss')
 </head>
 
+{{-- navbar  --}}
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
@@ -26,10 +27,14 @@
                     </li>
                 </ul>
             </div>
-            @if (Auth::check())
+
+
+            @if (Auth::check()) {{-- untuk meriksa apakah user udah ter autentifikasi aau login --}}
                 <a class="btn btn-light" href="{{ url('/logout') }}">Logout</a>
+                 {{-- kalau udah bakal nampilin nilai benar dan tombol pojok akan bertuliskan logout --}}
             @else
                 <a class="btn btn-light" href="{{ url('/login') }}">Login</a>
+                {{-- kalau engga, bakal lari kesini dan tulisannya tetep login  --}}
             @endif
         </div>
     </nav>
